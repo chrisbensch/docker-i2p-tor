@@ -10,5 +10,6 @@ services:
       - '7070:7070'
       - '4544:4444'
       - '9950:9050'
-    volumes:
-      - '/data/docker/docker-i2p-tor:/home/i2pd/data'
+## Adding a dedicated volume like this breaks i2p completely
+#    volumes:
+#      - '/data/docker-i2p-tor/data:/home/i2pd/data'
