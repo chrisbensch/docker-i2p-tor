@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  i2p:
+    container_name: i2p-tor
+    image: 'divax/i2p:i2p-tor'
+    environment:
+      - PORT_TOR=9950
+      - PORT_HTTP_PROXY=4544
+    ports:
+      - '7070:7070'
+      - '4544:4444'
+      - '9950:9050'
+    volumes:
+      - '/data/docker/docker-i2p-tor:/home/i2pd/data'
