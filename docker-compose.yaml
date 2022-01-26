@@ -6,6 +6,7 @@ services:
     environment:
       - PORT_TOR=9950
       - PORT_HTTP_PROXY=4544
+      - ENABLE_HTTPPROXY=1
     ports:
       - '7070:7070'
       - '4544:4444'
