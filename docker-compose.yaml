@@ -2,7 +2,7 @@ version: '3.3'
 services:
   i2p:
     container_name: i2p-tor
-    image: 'divax/i2p'
+    image: 'divax/i2p:i2p-tor'
     environment:
       - PORT_TOR=9950
       - PORT_HTTP_PROXY=4544
