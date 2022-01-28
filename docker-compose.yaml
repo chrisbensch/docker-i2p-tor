@@ -7,10 +7,14 @@ services:
       - PORT_TOR=9950
       - PORT_HTTP_PROXY=4544
       - ENABLE_HTTPPROXY=1
+      - ENABLE_SAM=1
+      - ENABLE_FLOODFILL=1
+      - ENABLE_TUNNELS=1
     ports:
       - '7070:7070'
       - '4544:4444'
       - '9950:9050'
+      - '8081:8080'
 ## Adding a dedicated volume like this breaks i2p completely
 #    volumes:
 #      - '/data/docker-i2p-tor/data:/home/i2pd/data'
