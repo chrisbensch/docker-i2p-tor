@@ -7,11 +7,15 @@ services:
       - PORT_TOR=9950
       - PORT_HTTP_PROXY=4544
       - ENABLE_HTTPPROXY=1
+      - PORT_SOCKSPROXY=4445
+      - ENABLE_SOCKSPROXY=1
+      - PORT_SAM=7656
       - ENABLE_SAM=1
       - ENABLE_FLOODFILL=1
       - ENABLE_TUNNELS=1
     ports:
       - '7070:7070'
+      - '7656:7656'
       - '4544:4444'
       - '9950:9050'
       - '8081:8080'
