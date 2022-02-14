@@ -2,7 +2,7 @@ version: '3.3'
 services:
   i2p:
     container_name: i2p-tor
-    image: 'divax/i2p:i2p-tor'
+    image: 'chrisbensch/docker-i2p-tor:latest'
     restart: always
     environment:
       - PORT_TOR=9950
@@ -14,12 +14,11 @@ services:
       - ENABLE_SAM=1
       - ENABLE_FLOODFILL=1
       - ENABLE_TUNNELS=1
+      - BANDWIDTH = X
     ports:
       - '7070:7070'
       - '7656:7656'
       - '4544:4444'
       - '9950:9050'
       - '8081:8080'
-## Adding a dedicated volume like this breaks i2p completely
-#    volumes:
-#      - '/data/docker-i2p-tor/data:/home/i2pd/data'
+
