@@ -1,0 +1,103 @@
+# for this file format description,
+# see https://github.com/olivierlacan/keep-a-changelog
+
+## [2.40.0] - 2021-11-128
+### Changed
+- i2pd version 2.40.0
+
+## [2.39.0] - 2021-11-10
+### Changed
+- addresses-initial: removed n1.diva... nodes
+- docker: replaced and added environment variables (see README)
+
+## [2.39.0] - 2021-08-23
+### Changed
+- i2pd version 2.39.0
+
+## [2.37.0] - 2021-03-15
+### Changed
+- i2pd version 2.37.0
+
+## [2.36.0] - 2021-02-15
+### Changed
+- addresses-initial: replaced inr.i2p by reg.i2p
+- i2pd conf: minor changes/typos/formatting in-sync with upstream config from i2pd
+
+## [2.35.0] - 2020-12-11
+### Added
+- Environment variable: TUNNELS_DIR_SOURCE
+### Changed
+- Bugfix: fixed tunnels directory handling
+- Bugfix: Docker build
+
+## [2.35.0] - 2020-12-03
+### Changed
+- Addressbook: updated diva testnet records
+
+## [2.35.0] - 2020-11-30
+- i2pd version 2.35.0
+
+## [2.34.0] - 2020-11-30
+### Changed
+- Addressbook: replaced diva testnet domain names
+
+## [2.34.0] - 2020-11-25
+### Added
+- htdocs/ping
+### Changed
+- Dockerfile: volume definition, pointing to data folder only
+- Docker tag "i2p:latest": removed DNScrypt, replaced by resolv.conf only
+- Docker tag "i2p:latest": removed COPY for obsolete htdocs folder
+
+## [2.34.0] - 2020-11-15
+### Changed
+- Addressbook handling: added diva.i2p default addresses
+
+## [2.34.0] - 2020-10-28
+### Added
+- dnscrypt-proxy package to support privacy respecting name resolution
+- default cmake options in i2pd build: WITH_AESNI=ON only
+### Fixed
+- https://github.com/diva-exchange/i2p/issues/1 - removed stubby
+
+## [2.34.0] - 2020-10-27
+### Changed
+- i2pd version 2.34.0
+- default cmake options in i2pd build (removed WITH_AESNI=ON and WITH_AVX=ON flags)
+
+## [2.33.0] - 2020-08-25
+### Changed
+- i2pd version 2.33.0
+- removed local reseed.diva.exchange reseed server, since it is included in the main release
+
+## [2.32.1-i2p-20200706] - 2020-07-06
+### Changed
+- modified startup scripts to enable easier container configuration
+- changed the way tunnels are configured
+- updated README to reflect the changed behaviour
+
+## [2.32.1-i2p-20200629] - 2020-06-29
+### Changed
+- added missing hosts.txt - which also serves as an example on how to use a base64 adress
+- bringing the reseed server urls in line with the code base of the stable i2pd release
+
+## [2.32.1-i2p-20200618] - 2020-06-18
+### Changed
+- Bugfix: entrypoint.sh, sed for tunnels.conf
+
+## [2.32.1-i2p-20200617] - 2020-06-17
+### Added
+- Support for environment variables to control the behaviour of the container: DISABLE_TUNNELS, PORT_BACKEND, PORT_EXPOSED and IP_BRIDGE
+### Changed
+- Bugfix: tunnels and i2pd conf files renamed to .org.conf files
+- Updated README to document changes
+
+## [2.32.1-i2p-20200616] - 2020-06-16
+### Changed
+- fixed wrong i2pd config: socks port 4445
+- security fix: added container ip support for http and socks proxy
+
+## [2.32.1-i2p-20200607] - 2020-06-07
+### Changed
+- Replaced dnsmasq by stubby, introducing DNS-over-TLS
+- README update
