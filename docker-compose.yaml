@@ -14,7 +14,7 @@ services:
       - ENABLE_SAM=1
       - ENABLE_FLOODFILL=1
       - ENABLE_TUNNELS=1
-      - BANDWIDTH = X
+      - BANDWIDTH=X
     ports:
       - '7070:7070'
       - '7656:7656'
