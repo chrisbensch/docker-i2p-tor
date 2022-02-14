@@ -15,11 +15,12 @@ services:
       - ENABLE_FLOODFILL=1
       - ENABLE_TUNNELS=1
       - BANDWIDTH=X
-      - PORT_I2P=29484
+      - PORT_I2P=23603
     ports:
       - '7070:7070'
       - '7656:7656'
       - '4544:4444'
       - '9950:9050'
       - '8081:8080'
+      - '23603:23603'
 
