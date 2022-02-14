@@ -15,7 +15,7 @@ services:
       - ENABLE_FLOODFILL=1
       - ENABLE_TUNNELS=1
       - BANDWIDTH=X
-      - PORT_I2P=23603
+      - PORT_I2PD=23603
     ports:
       - '7070:7070'
       - '7656:7656'
