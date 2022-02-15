@@ -9,12 +9,12 @@ set -e
 PROJECT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/../"
 cd ${PROJECT_PATH}
 
-sudo docker build --force-rm --no-cache -t divax/i2p:i2p-tor .
+sudo docker build --force-rm --no-cache -t chrisbensch/docker-i2p-tor .
 sudo docker volume create i2pd-build
 sudo docker run \
   -d \
   --mount type=volume,src=i2pd-build,dst=/home/i2pd/ \
-  --name i2pd-build divax/i2p:i2p-tor
+  --name i2pd-build chrisbensch/docker-i2p-tor
 
 # update certs
 rm -R certificates

@@ -1,10 +1,8 @@
 FROM alpine:latest
 
 LABEL author="Konrad Baechler <konrad@diva.exchange>" \
-  maintainer="Konrad Baechler <konrad@diva.exchange>" \
-  name="diva-i2p-tor" \
-  description="Distributed digital value exchange upholding security, reliability and privacy" \
-  url="https://diva.exchange"
+  maintainer="Chris Bensch <chris.bensch@gmail.com>" \
+  name="chrisbensch/docker-i2p-tor"
 
 COPY conf/ /home/i2pd/conf/
 COPY network/ /home/i2pd/network/

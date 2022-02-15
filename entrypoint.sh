@@ -64,8 +64,8 @@ IP_BRIDGE=${IP_BRIDGE:-`ip route | awk '/default/ { print $3; }'`}
 TUNNELS_DIR=/home/i2pd/tunnels.null
 IP_CONTAINER=`ip route get 1 | awk '{ print $NF; exit; }'`
 
-PORT_TOR=${PORT_TOR:?err}
-PORT_HTTP_PROXY=${PORT_HTTP_PROXY:?err}
+PORT_TOR=${PORT_TOR}
+PORT_HTTP_PROXY=${PORT_HTTP_PROXY}
 
 if [[ ${ENABLE_TUNNELS} == 1 ]]
 then
@@ -106,6 +106,7 @@ sed -i 's!\$ENABLE_SAM!'"${ENABLE_SAM}"'!g' /home/i2pd/conf/i2pd.conf
 sed -i 's!\$PORT_SAM!'"${PORT_SAM}"'!g' /home/i2pd/conf/i2pd.conf
 sed -i 's!\$ENABLE_FLOODFILL!'"${ENABLE_FLOODFILL}"'!g' /home/i2pd/conf/i2pd.conf
 sed -i 's!\$BANDWIDTH!'"${BANDWIDTH}"'!g' /home/i2pd/conf/i2pd.conf
+sed -i 's!\$PORT_I2PD!'"${PORT_I2PD}"'!g' /home/i2pd/conf/i2pd.conf
 
 # replace variables in the proxy pac files
 sed \
