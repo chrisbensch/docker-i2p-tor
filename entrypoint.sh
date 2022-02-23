@@ -61,7 +61,7 @@ fi
 ENABLE_TUNNELS=${ENABLE_TUNNELS:-0}
 IP_BRIDGE=${IP_BRIDGE:-`ip route | awk '/default/ { print $3; }'`}
 
-TUNNELS_DIR=/home/i2pd/tunnels.null
+TUNNELS_DIR=/home/i2pd/tunnels.conf.d
 IP_CONTAINER=`ip route get 1 | awk '{ print $NF; exit; }'`
 
 PORT_TOR=${PORT_TOR}

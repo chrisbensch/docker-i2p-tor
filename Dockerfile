@@ -34,7 +34,7 @@ RUN mkdir -p /home/i2pd/data/addressbook \
     autoconf \
     automake \
   && cd /tmp \
-  && git clone -b openssl https://github.com/PurpleI2P/i2pd.git \
+  && git clone --depth 1 --branch 2.41.0 https://github.com/PurpleI2P/i2pd.git \
   && cd /tmp/i2pd/build \
   && cmake -DWITH_AESNI=ON . \
   && make \
