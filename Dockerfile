@@ -7,13 +7,14 @@ LABEL author="Konrad Baechler <konrad@diva.exchange>" \
 COPY conf/ /home/i2pd/conf/
 COPY network/ /home/i2pd/network/
 COPY htdocs/ /home/i2pd/htdocs/
+COPY tunnels.source.conf.d/ /home/i2pd/tunnels.source.conf.d/
 COPY certificates/ /home/i2pd/data/certificates/
 COPY entrypoint.sh /
 
 # install deps && build i2p binary
 RUN mkdir -p /home/i2pd/data/addressbook \
-  && mkdir /home/i2pd/tunnels.null \
-  && mkdir /home/i2pd/tunnels.source.conf.d \
+  #&& mkdir /home/i2pd/tunnels.null \
+  #&& mkdir /home/i2pd/tunnels.source.conf.d \
   && mkdir /home/i2pd/tunnels.conf.d \
   && mkdir /home/i2pd/bin \
   && apk --no-cache --virtual build-dependendencies add \
@@ -33,10 +34,11 @@ RUN mkdir -p /home/i2pd/data/addressbook \
     git \
     autoconf \
     automake \
+    miniupnpc-dev \
   && cd /tmp \
   && git clone --depth 1 --branch 2.41.0 https://github.com/PurpleI2P/i2pd.git \
   && cd /tmp/i2pd/build \
-  && cmake -DWITH_AESNI=ON . \
+  && cmake -DWITH_AESNI=ON -DWITH_UPNP=ON . \
   && make \
   && strip i2pd \
   && mv /tmp/i2pd/build/i2pd /home/i2pd/bin/i2pd \
@@ -59,12 +61,13 @@ RUN mkdir -p /home/i2pd/data/addressbook \
     tor \
     darkhttpd \
     sed \
+    miniupnpc-dev \
   && cp /home/i2pd/conf/addresses-initial.org.csv /home/i2pd/data/addressbook/addresses.csv \
   && addgroup -g 1000 i2pd \
   && adduser -u 1000 -G i2pd -s /bin/sh -h "/home/i2pd" -D i2pd \
   && chown -R i2pd:i2pd /home/i2pd \
   && chmod 0700 /home/i2pd/bin/i2pd \
-  && chmod +x /entrypoint.sh
+  && chmod +x /entrypoint.sh 
 
 VOLUME [ "/home/i2pd/data/" ]
 WORKDIR "/home/i2pd/"
