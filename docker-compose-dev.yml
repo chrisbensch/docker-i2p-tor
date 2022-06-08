@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+  i2p:
+    container_name: i2pd
+    image: 'chrisbensch/docker-i2pd:dev'
+    ports:
+      - '7070:7070'
+      - '7656:7656'
+      - '4544:4444'
+      - '4445:4445'
+      - '8081:8080'
+      - '23603:23603'
+
