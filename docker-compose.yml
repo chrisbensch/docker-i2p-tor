@@ -4,11 +4,11 @@ services:
     container_name: i2pd
     image: 'chrisbensch/docker-i2pd:latest'
     ports:
-      - '6668:6668'
-      - '6669:6669'
-      - '7070:7070'
-      - '7656:7656'
-      - '4544:4444'
-      - '4445:4445'
-      - '8081:8080'
-      - '23603:23603'
+      - '4444:4444' # HTTP Proxy
+      - '4445:4445' # SOCKS Proxy
+      - '6668:6668' # IRC Irc2P
+      - '6669:6669' # IRC Ilita
+      - '7070:7070' # Web Console
+      - '7654:7654' # I2CP
+      - '7656:7656' # SAM
+      - '8118:8118' # NTCP
