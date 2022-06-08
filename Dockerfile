@@ -3,7 +3,6 @@ FROM alpine:latest
 LABEL maintainer="Chris Bensch <chris.bensch@gmail.com>"
 
 COPY data/conf/ /home/i2pd/data/conf/
-
 COPY network/ /home/i2pd/network/
 COPY data/certificates/ /home/i2pd/data/certificates/
 COPY entrypoint.sh /

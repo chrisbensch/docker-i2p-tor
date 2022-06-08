@@ -1,27 +1,12 @@
 version: '3.3'
 services:
-  i2p:
-    container_name: i2p-tor
-    image: 'chrisbensch/docker-i2p-tor:latest'
-    restart: always
-    environment:
-      - PORT_TOR=9950
-      - PORT_HTTP_PROXY=4544
-      - ENABLE_HTTPPROXY=1
-      - PORT_SOCKSPROXY=4445
-      - ENABLE_SOCKSPROXY=1
-      - PORT_SAM=7656
-      - ENABLE_SAM=1
-      - ENABLE_FLOODFILL=1
-      - ENABLE_TUNNELS=1
-      - BANDWIDTH=X
-      - PORT_I2PD=23603
+  i2pd:
+    container_name: i2pd
+    image: 'chrisbensch/docker-i2pd:latest'
     ports:
-      - '4444:4444'
-      - '4445:4445'
       - '7070:7070'
-      - '7654:7654'
       - '7656:7656'
-      - '8118:8118'
+      - '4544:4444'
+      - '4445:4445'
+      - '8081:8080'
       - '23603:23603'
-
