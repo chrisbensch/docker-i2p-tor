@@ -4,6 +4,8 @@ services:
     container_name: i2pd
     image: 'chrisbensch/docker-i2pd:latest'
     ports:
+      - '6668:6668'
+      - '6669:6669'
       - '7070:7070'
       - '7656:7656'
       - '4544:4444'
