@@ -5,7 +5,7 @@ LABEL maintainer="Chris Bensch <chris.bensch@gmail.com>"
 COPY data/conf/ /home/i2pd/data/conf/
 COPY network/ /home/i2pd/network/
 COPY data/certificates/ /home/i2pd/data/certificates/
-COPY entrypoint.sh /
+COPY entrypoint.sh /entrypoint.sh
 
 # install deps && build i2p binary
 RUN mkdir -p /home/i2pd/data/addressbook \
