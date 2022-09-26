@@ -29,7 +29,7 @@ RUN mkdir -p /home/i2pd/data/addressbook \
     automake \
     miniupnpc-dev \
   && cd /tmp \
-  && git clone --depth 1 --branch 2.42.1 https://github.com/PurpleI2P/i2pd.git \
+  && git clone --depth 1 --branch 2.43.0 https://github.com/PurpleI2P/i2pd.git \
   && cd /tmp/i2pd/build \
   && cmake -DWITH_AESNI=ON -DWITH_UPNP=ON . \
   && make \
