@@ -4,6 +4,7 @@ services:
     container_name: i2pd
     image: 'chrisbensch/docker-i2pd:latest'
     ports:
+      - '2827:2827' # BOB
       - '4444:4444' # HTTP Proxy
       - '4445:4445' # SOCKS Proxy
       - '6668:6668' # IRC Irc2P
