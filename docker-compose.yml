@@ -15,3 +15,4 @@ services:
       - '8118:8118' # NTCP
       - '28656:28656' # SSU Custom Port
       - '28657:28657' # SSU2 Custom Port
+    restart: always
