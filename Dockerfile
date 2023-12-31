@@ -7,6 +7,7 @@ COPY network/ /home/i2pd/network/
 COPY data/certificates/ /home/i2pd/data/certificates/
 COPY entrypoint.sh /entrypoint.sh
 
+
 # install deps && build i2p binary
 RUN mkdir -p /home/i2pd/data/addressbook \
   && mkdir /home/i2pd/bin \
@@ -58,6 +59,7 @@ RUN mkdir -p /home/i2pd/data/addressbook \
   && chown -R i2pd:i2pd /home/i2pd \
   && chmod 0700 /home/i2pd/bin/i2pd \
   && chmod +x /entrypoint.sh 
+
 #USER i2pd
 #VOLUME [ "/home/i2pd/data/" ]
 #WORKDIR "/home/i2pd/"
