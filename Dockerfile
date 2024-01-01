@@ -2,15 +2,10 @@ FROM alpine:latest
 
 LABEL maintainer="Chris Bensch <chris.bensch@gmail.com>"
 
-COPY data/conf/ /home/i2pd/data/conf/
-COPY network/ /home/i2pd/network/
-COPY data/certificates/ /home/i2pd/data/certificates/
+COPY data/ /home/i2pd/data/
 COPY entrypoint.sh /entrypoint.sh
 
-
-# install deps && build i2p binary
-RUN mkdir -p /home/i2pd/data/addressbook \
-  && mkdir /home/i2pd/bin \
+RUN mkdir /home/i2pd/bin \  
   && apk --no-cache --virtual build-dependendencies add \
     cmake \
     make \
@@ -53,7 +48,6 @@ RUN mkdir -p /home/i2pd/data/addressbook \
     libstdc++ \
     sed \
     miniupnpc-dev \
-  #&& cp /home/i2pd/conf/addresses.csv /home/i2pd/data/addressbook/addresses.csv \
   && addgroup -g 1000 i2pd \
   && adduser -u 1000 -G i2pd -s /bin/sh -h "/home/i2pd" -D i2pd \
   && chown -R i2pd:i2pd /home/i2pd \
