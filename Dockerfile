@@ -2,6 +2,9 @@ FROM alpine:latest
 
 LABEL maintainer="Chris Bensch <chris.bensch@gmail.com>"
 
+COPY data/ /home/i2pd/data/
+COPY entrypoint.sh /entrypoint.sh
+
 RUN mkdir -p /home/i2pd/bin && \  
   apk --no-cache --virtual build-dependendencies add \
     cmake \
@@ -27,9 +30,10 @@ RUN mkdir -p /home/i2pd/bin && \
   && git clone --depth 1 --branch $I2PD_VERSION https://github.com/PurpleI2P/i2pd.git \
   && cd /tmp/i2pd/build \
   && cmake -DWITH_AESNI=ON -DWITH_UPNP=ON . \
+  # Sloooooooooow
   && make \
   && strip i2pd \
-  # Optimize for size, but slow
+  # Optimize for size, but slows down build dramatically
   #&& upx --ultra-brute i2pd \
   && mv /tmp/i2pd/build/i2pd /home/i2pd/bin/i2pd \
   # clean up /tmp
@@ -53,8 +57,5 @@ RUN mkdir -p /home/i2pd/bin && \
   && chown -R i2pd:i2pd /home/i2pd \
   && chmod 0700 /home/i2pd/bin/i2pd \
   && chmod +x /entrypoint.sh 
-
-COPY data/ /home/i2pd/data/
-COPY entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
