@@ -1,0 +1,23 @@
+FROM alpine:latest
+
+LABEL maintainer="Chris Bensch <chris.bensch@gmail.com>"
+
+#COPY data/ /home/i2pd/data/
+#COPY entrypoint.sh /entrypoint.sh
+
+# Simpler, although might be a version behind GitHub Release
+RUN apk --no-cache add \
+    i2pd
+
+COPY simplified/* /etc/i2pd/
+#COPY start_i2pd.sh /start_i2pd.sh
+#COPY simplified/* /var/lib/i2pd/
+#COPY data/reseed/i2pseeds.su3 /etc/i2pd/i2pseeds.su3
+
+#ENTRYPOINT ["/bin/ash"]
+#ENTRYPOINT ["i2pd --service"]
+ENTRYPOINT ["/etc/i2pd/start_i2pd.sh"]
+
+# Below will allow to mount own i2pd.conf/tunnels.conf/subscriptions.txt and keep router files
+# 
+# docker run --rm -it -v .:/var/lib/i2pd chrisbensch/docker-i2pd:testing
