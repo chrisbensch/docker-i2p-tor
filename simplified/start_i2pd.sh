@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Credit will be added, have to find original source!
+
+cat /etc/i2pd/resolv.conf > /etc/resolv.conf
+
 if [ ! -e /var/lib/i2pd/certificates ]; then
   cp -R /usr/share/i2pd/certificates /var/lib/i2pd/certificates
 fi
@@ -19,5 +23,5 @@ fi
 if [ ${#PARAMS} -eq 0 ] || [ "none" = "$PARAMS" ] || [ "0" = "$PARAMS" ]; then
   i2pd --service
 else
-  i2pd --service $PARAMS
+  i2pd --service $PARAMS # takes normal i2pd cli params, will add more info later
 fi
