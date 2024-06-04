@@ -4,18 +4,7 @@ services:
     container_name: i2pd
     image: chrisbensch/docker-i2pd:simplified
     network_mode: host
-    #ports:
-    #  - '2827:2827' # BOB
-    #  - '4444:4444' # HTTP Proxy
-    #  - '4445:4445' # SOCKS Proxy
-    #  - '6668:6668' # IRC Irc2P
-    #  - '6669:6669' # IRC Ilita
-    #  - '7070:7070' # Web Console
-    #  - '7654:7654' # I2CP
-    #  - '7656:7656' # SAM
-    #  - '8118:8118' # NTCP
-    #  - '28656:28656' # SSU Custom Port
-    #  - '28657:28657' # SSU2 Custom Port
     volumes:
+      - ./i2pd-torseed.conf:/var/lib/i2pd/i2pd.conf
       - ./appdata/var/lib/i2pd/:/var/lib/i2pd/
     restart: always
